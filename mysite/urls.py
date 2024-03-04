@@ -39,14 +39,14 @@ urlpatterns += [
         ),
 ]
 
-# Serve the favicon - Keep for later
-urlpatterns += [
-    path('favicon.ico', serve, {
-            'path': 'favicon.ico',
-            'document_root': os.path.join(BASE_DIR, 'home/static'),
-        }
-    ),
-]
+# # Serve the favicon - Keep for later
+# urlpatterns += [
+#     path('favicon.ico', serve, {
+#             'path': 'favicon.ico',
+#             'document_root': os.path.join(BASE_DIR, 'home/static'),
+#         }
+#     ),
+# ]
 
 # Switch to social login if it is configured - Keep for later
 try:
