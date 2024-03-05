@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'social_django',  
     'taggit',
     'home.apps.HomeConfig',  
+    'ads.apps.AdsConfig',
+
 
 ]
 
@@ -96,14 +98,8 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'prnamhr$ads',
-        'USER': 'prnamhr',
-        'PASSWORD': 'p0137282',
-        'HOST': 'prnamhr.mysql.pythonanywhere-services.com',
-         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
