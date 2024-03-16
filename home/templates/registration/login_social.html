@@ -18,20 +18,19 @@
 {% load crispy_forms_tags %}
 
 <form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-{{ form|crispy }}
-<input type="submit" class="btn btn-primary" value="Login Locally" />
-<input type="hidden" name="next" value="{{ next }}" />
+  {% csrf_token %}
+  {{ form|crispy }}
+  <input type="submit" class="btn btn-primary" value="Login Locally" />
+  <input type="hidden" name="next" value="/api/tasks/" /> <!-- Redirect to the task list page after login -->
 </form>
 
 {% if settings.SOCIAL_AUTH_GITHUB_KEY %}
-<hr/>
-<a class="btn btn-info" role="button" href="{% url 'social:begin' 'github' %}?next={{ next }}">
+  <hr/>
+  <a class="btn btn-info" role="button" href="{% url 'social:begin' 'github' %}?next={{ next }}">
     <i class="fa fa-github" aria-hidden="true"></i>
     Login with GitHub</a>
 {% endif %}
 
-<!-- ROOT_URLCONF {{ settings.ROOT_URLCONF }} -->
+<!-- Add more social login buttons if needed -->
 
 {% endblock %}
-

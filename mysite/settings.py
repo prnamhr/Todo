@@ -6,9 +6,11 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+USE_TZ = True
+TIME_ZONE = 'Asia/Tehran'
 
 # Used for a default title
-APP_NAME = 'ParnaMehri'   # Add
+APP_NAME = 'To-Do-List'   # Add
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'g$iqqu&*mw4_sg3(#ld0sqaalxebel&168^yj%i&sgrw(fmn@w'
@@ -36,10 +38,8 @@ INSTALLED_APPS = [
     'rest_framework', 
     'social_django',  
     'taggit',
-    'home.apps.HomeConfig',  
-    'ads.apps.AdsConfig',
-
-
+    'home.apps.HomeConfig', 
+    'mainApp.apps.MainappConfig', 
 ]
 
 # When we get to tagging
@@ -88,20 +88,13 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -156,7 +149,7 @@ try:
     SOCIAL_AUTH_GITHUB_KEY = github_settings.SOCIAL_AUTH_GITHUB_KEY
     SOCIAL_AUTH_GITHUB_SECRET = github_settings.SOCIAL_AUTH_GITHUB_SECRET
 except:
-    print('When you want to use social login, please see mysite/github_settings-dist.py')
+    print('When you want to use social login, please see dj4e-samples/github_settings-dist.py')
 
 # https://python-social-auth.readthedocs.io/en/latest/configuration/django.html#authentication-backends
 # https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html

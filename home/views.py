@@ -7,7 +7,6 @@ from django.conf import settings
 # This is a little complex because we need to detect when we are
 # running in various configurations
 
-
 class HomeView(View):
     def get(self, request):
         print(request.get_host())
